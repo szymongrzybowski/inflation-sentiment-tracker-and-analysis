@@ -1,3 +1,5 @@
+# Based on the Naive Bayes Classifier from Joel Grus' Data Science from Scratch.
+
 from typing import Set, NamedTuple, List, Tuple, Dict, Iterable
 import re
 import math
