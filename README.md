@@ -4,7 +4,7 @@ Objectives of the project:
 - to detect tweets about inflation with sncrape library
 - to analyze inflation sentiment using Naive Bayes classifier
 
-Prequisites:
+Prerequisites:
 - Python 3.8.1
 - Pandas
 - snscrape
