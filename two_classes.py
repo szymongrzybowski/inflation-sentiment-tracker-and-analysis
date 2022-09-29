@@ -3,7 +3,7 @@ import re
 import math
 from collections import defaultdict, Counter
 import random
-from scratch.machine_learning import split_data
+from scratch.machine_learning import split_data # https://github.com/joelgrus/data-science-from-scratch/tree/master/scratch
 
 def tokenize(text: str) -> Set[str]:
     text = text.lower()
