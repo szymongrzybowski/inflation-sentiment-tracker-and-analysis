@@ -74,7 +74,9 @@ class SentimentClassifier:
         prob_if_pos = math.exp(log_prob_if_pos)
         prob_if_neu = math.exp(log_prob_if_neu)
 
-        return prob_if_neg / (prob_if_neg + prob_if_pos + prob_if_neu)
+        return [prob_if_neg / (prob_if_neg + prob_if_pos + prob_if_neu),
+                prop_if_pos / (prob_if_neg + prob_if_pos + prob_if_neu),
+                prob_if_neu / (prob_if_neg + prob_if_pos + prob_if_neu)]
 
 posts = [Post("neg rules", is_what=0),
          Post("pos rules", is_what=4),
