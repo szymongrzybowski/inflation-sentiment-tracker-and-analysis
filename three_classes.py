@@ -15,7 +15,7 @@ class Post(NamedTuple):
     is_what: int
 
 class SentimentClassifier:
-    def __init__(self, k: float = 0.5) -> None:
+    def __init__(self, k: float = 0.333) -> None:
         self.k = k
 
         self.tokens: Set[str] = set()
@@ -48,9 +48,9 @@ class SentimentClassifier:
         pos = self.token_pos_counts[token]
         neu = self.token_neu_counts[token]
 
-        p_token_neg = (neg + self.k) / (self.neg_posts + 2 * self.k)
-        p_token_pos = (pos + self.k) / (self.pos_posts + 2 * self.k)
-        p_token_neu = (neu + self.k) / (self.neu_posts + 2 * self.k)
+        p_token_neg = (neg + self.k) / (self.neg_posts + 3 * self.k)
+        p_token_pos = (pos + self.k) / (self.pos_posts + 3 * self.k)
+        p_token_neu = (neu + self.k) / (self.neu_posts + 3 * self.k)
 
         return p_token_neg, p_token_pos, p_token_neu
 
@@ -84,7 +84,7 @@ posts = [Post("neg rules", is_what=0),
          Post("neu is the best", is_what=2),
          Post("hello neu", is_what=2)]
 
-model = SentimentClassifier(k=0.5)
+model = SentimentClassifier(k=0.333)
 model.train(posts)
 
 assert model.tokens == {"neg", "pos", "neu", "rules", "hello", "is", "the", "best"}
