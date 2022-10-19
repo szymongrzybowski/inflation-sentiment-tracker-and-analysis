@@ -40,7 +40,7 @@ class SentimentClassifier:
                     self.token_pos_counts[token] += 1
 
     def _probabilities(self, token: str) -> Tuple[float, float]:
-        """Returns P(token | neg) and P(token | not neg) / P(token | pos)"""
+        """Returns P(token | neg) and P(token | pos)"""
         neg = self.token_neg_counts[token]
         pos = self.token_pos_counts[token]
 
