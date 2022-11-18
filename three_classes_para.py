@@ -7,7 +7,7 @@ import csv
  
 def tokenize(text: str) -> Set[str]:
     text = text.lower()
-    rem_links = re.sub(r'http\S+', '', text) # deletes link
+    rem_links = re.sub(r'http\S+', '', text) # deletes links
     all_words = re.findall("[a-z0-9]+", rem_links)
     return set(all_words)
    
