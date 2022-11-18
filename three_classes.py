@@ -3,7 +3,7 @@ import re
 import math
 from collections import defaultdict, Counter
 import random
-from dsfs.scratch.machine_learning import split_data
+from dsfs.scratch.machine_learning import split_data # https://github.com/joelgrus/data-science-from-scratch/tree/master/scratch
 import csv
 import pytest
  
