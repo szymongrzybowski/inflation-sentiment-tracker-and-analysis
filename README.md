@@ -11,6 +11,7 @@ Prerequisites:
 
 Files:
 - tracker.py: detects and saves inflation related tweets into Pandas DataFrame.
-- two_classes.py: Naive Bayes Classifier which uses two classes: negative and positive. Model only for comparison.
-- three_classes.py: NBC which uses three classes: negative, positive and neutral. [In the making].
+- two_classes.py: Naive Bayes classifier which uses two classes: negative and positive. Model only for comparison.
+- three_classes.py: NBC which uses three classes: negative, positive and neutral.
+- three_classes_para.py: with min_counts parameter
 - dataset: Sentiment140 (http://help.sentiment140.com/for-students)
