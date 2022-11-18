@@ -16,7 +16,7 @@ class Post(NamedTuple):
     is_what: int
  
 class SentimentClassifier:
-    def __init__(self, k: float = 0.333, m: int = 1) -> None: # set the parameter (m) of the minimum number of occurrences of the word
+    def __init__(self, k: float = 0.333, m: int = 3) -> None: # set the parameter (m) of the minimum number of occurrences of the word
         self.k = k
         self.min_counts = m
  
