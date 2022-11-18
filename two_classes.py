@@ -103,13 +103,9 @@ p_if_pos = math.exp(sum(math.log(p) for p in probs_if_pos))
 # Should be about 0.83
 assert model.predict(text) == p_if_neg / (p_if_neg + p_if_pos)
 
-def drop_final_s(word):
-    return re.sub("s$", "", word)
-
 def main():
     data: List[Post] = []
 
-    random.seed(0)      # just so you get the same answers as me
     train_posts, test_posts = split_data(data, 0.75)
     
     model = SentimentClassifier()
@@ -117,23 +113,5 @@ def main():
     
     predictions = [(post, model.predict(post.text))
                    for post in test_posts]
-    
-    # Assume that spam_probability > 0.5 corresponds to spam prediction
-    # and count the combinations of (actual is_spam, predicted is_spam)
-    confusion_matrix = Counter((post.is_neg, neg_probability > 0.5)
-                               for post, neg_probability in predictions)
-    
-    print(confusion_matrix)
-    
-    def p_neg_given_token(token: str, model: SentimentClassifier) -> float:
-        # We probably shouldn't call private methods, but it's for a good cause.
-        probs_if_neg, probs_if_pos = model._probabilities(token)
-    
-        return probs_if_neg / (probs_if_neg + probs_if_pos)
-    
-    words = sorted(model.tokens, key=lambda t: p_neg_given_token(t, model))
-    
-    print("most_negative_words", words[-10:])
-    print("most_positive_words", words[:10])
     
 if __name__ == "__main__": main()
